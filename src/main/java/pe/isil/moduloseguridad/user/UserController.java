@@ -26,6 +26,7 @@ public class UserController {
         return "user/index";
     }
 
+
     @GetMapping("/create")
     public String createView(Model model){
         return "user/create";
@@ -70,17 +71,11 @@ public class UserController {
     }
 
 
-
     @Data
     @Builder
     public static class Response {
         String code;
         String message;
     }
-
-
-
-
-
 
 }

@@ -3,10 +3,7 @@ package pe.isil.moduloseguridad.auth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pe.isil.moduloseguridad.shared.BasicRespone;
 
 @Controller
@@ -27,7 +24,16 @@ public class AuthUserController {
         return "auth/register";
     }
 
+    @GetMapping("/auth/mainmenu")
+    public String mainmenu(){
+        return "auth/mainmenu";
+    }
 
+
+    @GetMapping("/auth/changepass")
+    public  String updateP(){
+        return  "/auth/changepass";
+    }
 
     @PostMapping("/login")
     public String login(@ModelAttribute AuthUser user, Model model){
@@ -35,7 +41,7 @@ public class AuthUserController {
         BasicRespone result = authService.login(user.getEmail(), user.getPassword());
 
         if(result.getCode().equals("200")){
-            return "redirect:/user/";
+            return "redirect:/auth/mainmenu";
         }else{
             model.addAttribute("resp",result);
             return "auth/login";
@@ -54,5 +60,19 @@ public class AuthUserController {
         }
 
     }
+
+
+   @PostMapping("/auth/changepass")
+   public String changePassword(AuthUser auth, Model model){
+       BasicRespone response = authService.updatePass(auth);
+       if(response.getCode().equals("200")){
+           return "redirect:/user/";
+       }else{
+           model.addAttribute("resp",response);
+           return "./response";
+       }
+   }
+
+
 
 }
