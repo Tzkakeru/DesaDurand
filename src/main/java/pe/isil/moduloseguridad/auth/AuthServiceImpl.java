@@ -3,7 +3,6 @@ package pe.isil.moduloseguridad.auth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.isil.moduloseguridad.shared.BasicRespone;
-import pe.isil.moduloseguridad.user.User;
 
 import java.util.Optional;
 
@@ -54,8 +53,8 @@ public class AuthServiceImpl implements AuthService{
     public BasicRespone updatePass(AuthUser user){
         try{
             Optional<AuthUser> userTemp = authUserRepository.findAuthUserByEmail(user.getEmail());
-
-            if(userTemp.isPresent()){
+            if(userTemp.isEmpty()){
+                userTemp.get().setPassword(user.getPassword());
                 authUserRepository.save(user);
                 return BasicRespone.whenSucceed();
 

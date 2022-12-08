@@ -54,6 +54,13 @@ public class BasicRespone {
                 .message("Usuario ya esta registrado")
                 .build();
     }
+    public static BasicRespone buildWhenApplIsTaken(){
+        return BasicRespone.builder()
+                .code("510")
+                .message("App ya esta registrada")
+                .build();
+    }
+
 
     public static BasicRespone buildWhenRegisterSucceed(){
         return BasicRespone.builder()

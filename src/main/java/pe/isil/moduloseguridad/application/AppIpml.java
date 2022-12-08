@@ -16,16 +16,16 @@ public class AppIpml implements AppService {
     @Override
     public BasicRespone createApp(Aplicacion aplicacion) {
         try{
-            Optional<Aplicacion> appTemp = appRepository.findByLenguage(aplicacion.getLenguage());
+            Optional<Aplicacion> appTemp = appRepository.findByLenguage(aplicacion.getNombre());
 
             if(appTemp.isPresent()){
-                return BasicRespone.buildWhenEmailIsTaken();
+                return BasicRespone.buildWhenApplIsTaken();
             }else{
                 appRepository.save(aplicacion);
                 return BasicRespone.whenSucceed();
             }
         }catch (Exception e){
-            return BasicRespone.buildWhenError(e.getMessage());
+            return BasicRespone.buildWhenApplIsTaken();
         }
     }
 
