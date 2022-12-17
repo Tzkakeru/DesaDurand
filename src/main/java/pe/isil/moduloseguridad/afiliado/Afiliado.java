@@ -1,14 +1,16 @@
-package pe.isil.moduloseguridad.user;
+package pe.isil.moduloseguridad.afiliado;
+
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
-
+@Data
 @Entity
-@Table(name ="tbl_user",
+@Table(name ="tbl_Afiliado",
     uniqueConstraints = {
-        @UniqueConstraint(columnNames = "email",name="email_unique")
+        @UniqueConstraint(columnNames = "dni",name="unique_dni")
     })
-public class User {
+public class Afiliado {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -23,8 +25,16 @@ public class User {
     @Column(nullable = false, length = 200)
     private String email;
 
-    @Column(nullable = true, length = 500)
-    private String urlPhoto;
+    @Column(nullable = false, length = 200)
+    private String dni;
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
 
     private Date createdDate;
 
@@ -78,13 +88,6 @@ public class User {
         this.email = email;
     }
 
-    public String getUrlPhoto() {
-        return urlPhoto;
-    }
-
-    public void setUrlPhoto(String urlPhoto) {
-        this.urlPhoto = urlPhoto;
-    }
 
     public Date getCreatedDate() {
         return createdDate;

@@ -30,11 +30,6 @@ public class AuthUserController {
     }
 
 
-    @GetMapping("/auth/changepass")
-    public  String updateP(){
-        return  "/auth/changepass";
-    }
-
     @PostMapping("/login")
     public String login(@ModelAttribute AuthUser user, Model model){
 
@@ -60,18 +55,6 @@ public class AuthUserController {
         }
 
     }
-
-
-   @PostMapping("/auth/changepass")
-   public String changePassword(AuthUser auth, Model model){
-       BasicRespone response = authService.updatePass(auth);
-       if(response.getCode().equals("200")){
-           return "redirect:/user/";
-       }else{
-           model.addAttribute("resp",response);
-           return "./response";
-       }
-   }
 
 
 

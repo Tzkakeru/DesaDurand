@@ -1,4 +1,4 @@
-package pe.isil.moduloseguridad.user;
+package pe.isil.moduloseguridad.afiliado;
 
 import lombok.Builder;
 import lombok.Data;
@@ -11,33 +11,33 @@ import pe.isil.moduloseguridad.shared.BasicRespone;
 import java.util.List;
 
 @Controller
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/afiliado")
+public class AfiliadoController {
 
     @Autowired
-    private UserService userService;
+    private AfiliadoService afiliadoService;
 
     @GetMapping("/")
     public String index(Model model){
 
-        List<User> users = userService.getAllUsers();
-        model.addAttribute("users",users);
+        List<Afiliado> afiliados = afiliadoService.findAll();
+        model.addAttribute("afiliados", afiliados);
 
-        return "user/index";
+        return "afiliado/index";
     }
 
 
     @GetMapping("/create")
     public String createView(Model model){
-        return "user/create";
+        return "afiliado/create";
     }
 
     @PostMapping ("/create")
-    public String createUser(Model model, User user){
+    public String createUser(Model model, Afiliado afiliado){
 
-        BasicRespone response = userService.createUser(user);
+        BasicRespone response = afiliadoService.createAfiliado(afiliado);
         if(response.getCode().equals("200")){
-            return "redirect:/user/";
+            return "redirect:/afiliado/";
         }else{
             model.addAttribute("resp",response);
             return "./response";
@@ -46,17 +46,17 @@ public class UserController {
 
     @GetMapping("/update")
     public String update(@RequestParam("id") Long id, Model model){
-        User user = userService.getUserById(id);
-        model.addAttribute("user",user);
-        return "user/update";
+        Afiliado afil = afiliadoService.getAfiliadoById(id);
+        model.addAttribute("afil", afil);
+        return "afiliado/update";
     }
 
     @PostMapping("/update")
-    public String updateUser(User userToUpdate, Model model){
+    public String updateUser(Afiliado afiliadoToUpdate, Model model){
 
-        BasicRespone response = userService.updateUser(userToUpdate,userToUpdate.getId());
+        BasicRespone response = afiliadoService.updateAfiliado(afiliadoToUpdate, afiliadoToUpdate.getId());
         if(response.getCode().equals("200")){
-            return "redirect:/user/";
+            return "redirect:/afiliado/";
         }else{
             model.addAttribute("resp",response);
             return "./response";
@@ -66,8 +66,8 @@ public class UserController {
 
     @DeleteMapping("/delete")
     public String deleteUser(@RequestParam("id") Long id, Model model){
-        userService.deleteUser(id);
-        return "redirect:/user/";
+        afiliadoService.deleteAfiliado(id);
+        return "redirect:/afiliado/";
     }
 
 

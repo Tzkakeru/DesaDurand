@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Aplicacion -Formulario de Registro </title>
+    <title>Visitas -Formulario de Registro </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
@@ -10,27 +10,22 @@
 <div class="container">
     <br>
     <!--Formulario de registro -->
-    <form th:action="@{/app/create}" method="post" th:object ="${app}" >
+    <form th:action="@{/visita/create}" method="post" th:object ="${visita}" >
         <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre:</label>
-            <input type="text" class="form-control" id="nombre" name ="nombre" >
+            <label for="local" class="form-label">Local:</label>
+            <input type="text" class="form-control" id="local" name = "local">
         </div>
 
         <div class="mb-3">
-            <label for="baseDatos" class="form-label">BaseDatos:</label>
-            <input type="text" class="form-control" id="baseDatos" name = "baseDatos">
-        </div>
-
-        <div class="mb-3">
-            <label for="lenguage" class="form-label">Lenguage:</label>
-            <input type="text" class="form-control" id="lenguage" name = "lenguage">
+            <label for="afiliado">Selecciona DNI</label>
+                <select id="afiliado" name="afiliado">
+                    <option th:each="afiliado: ${afiliados}" th:value="${afiliado.id}" th:text="${afiliado.dni}"></option>
+                </select>
         </div>
 
         <button type="submit" class="btn btn-primary">Registrar</button>
     </form>
 </div>
-
-
 
 
 

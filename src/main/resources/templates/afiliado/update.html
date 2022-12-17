@@ -8,28 +8,28 @@
 <body>
 <br>
 <div class= "container">
-    <form  th:action="@{/user/update}" th:object="${userToUpdate}" method="post">
+    <form  th:action="@{/afiliado/update}" th:object="${afiliadoToUpdate}" method="post">
 
-        <input type="hidden" th:value="${user.id}" name="id" id="id" />
+        <input type="hidden" th:value="${afil.id}" name="id" id="id" />
 
         <div class="mb-3">
             <label for="name" class="form-label">Nombre:</label>
-            <input type="text" class="form-control" id="name" name ="name" th:value="${user.name}" >
+            <input type="text" class="form-control" id="name" name ="name" th:value="${afil.name}" >
         </div>
 
         <div class="mb-3">
             <label for="lastname" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id="lastName" name = "lastName" th:value="${user.lastName}">
+            <input type="text" class="form-control" id="lastName" name = "lastName" th:value="${afil.lastName}">
         </div>
 
         <div class="mb-3">
             <label for="email" class="form-label">Correo</label>
-            <input type="email" class="form-control" id="email" name = "email" th:value="${user.email}">
+            <input type="email" class="form-control" id="email" name = "email" th:value="${afil.email}">
         </div>
 
         <div class="mb-3">
-            <label for="urlPhoto" class="form-label">Photo</label>
-            <input type="text" class="form-control" id="urlPhoto" name = "urlPhoto" th:value="${user.urlPhoto}">
+            <label for="dni" class="form-label">DNI</label>
+            <input type="text" class="form-control" id="dni" name = "dni" th:value="${afil.dni}">
         </div>
 
         <button type="submit" class="btn btn-primary">Actualizar</button>

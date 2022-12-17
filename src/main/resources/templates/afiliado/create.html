@@ -10,25 +10,25 @@
 <div class="container">
   <br>
   <!--Formulario de registro -->
-  <form th:action="@{/user/create}" method="post" th:object ="${user}" >
+  <form th:action="@{/afiliado/create}" method="post" th:object ="${afiliado}" >
     <div class="mb-3">
       <label for="name" class="form-label">Nombre:</label>
       <input type="text" class="form-control" id="name" name ="name" >
     </div>
 
     <div class="mb-3">
-      <label for="lastname" class="form-label">Apellido</label>
+      <label for="lastname" class="form-label">Apellido:</label>
       <input type="text" class="form-control" id="lastName" name = "lastName">
     </div>
 
     <div class="mb-3">
-      <label for="email" class="form-label">Correo</label>
+      <label for="email" class="form-label">Correo:</label>
       <input type="email" class="form-control" id="email" name = "email">
     </div>
 
     <div class="mb-3">
-      <label for="urlPhoto" class="form-label">Photo</label>
-      <input type="text" class="form-control" id="urlPhoto" name = "urlPhoto">
+      <label for="dni" class="form-label">DNI:</label>
+      <input type="text" class="form-control" id="dni" name = "dni">
     </div>
 
     <button type="submit" class="btn btn-primary">Registrar</button>

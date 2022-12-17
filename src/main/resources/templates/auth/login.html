@@ -16,7 +16,7 @@
         </div>
 
         <br>
-        <form th:action="@{/login}" method="post" th:object="${user}">
+        <form th:action="@{/login}" method="post" th:object="${afiliado}">
             <div class="form-outline mb-4">
                 <label class="form-label" for="email">Email:</label>
                 <input type="email" id="email" name ="email" class="form-control" />
@@ -27,12 +27,6 @@
                 <input type="password" id="password" name="password" class="form-control" />
             </div>
 
-            <div class="row mb-4">
-                <div class="col">
-                    <!-- Simple link -->
-                    <a th:href="@{/auth/changepass}">Olvidaste tu contraseña?</a>
-                </div>
-            </div>
 
             <!-- Submit button -->
             <button type="submit" class="btn btn-primary btn-block mb-4"><a th:href="@{/auth/mainmenu}"></a>Ingresar</button>

@@ -28,13 +28,13 @@
           </tr>
           </thead>
           <tbody>
-          <tr th:each="user : ${listuser}" >
-              <th scope="row" th:text="${user.id}"></th >
-              <td th:text ="${user.name}"></td>
-              <td th:text ="${user.lastname}"></td>
-              <td th:text ="${user.username}"></td>
-              <td th:text ="${user.nroDoc}"></td>
-              <td th:text ="${user.enable}"></td>
+          <tr th:each="afiliado : ${listuser}" >
+              <th scope="row" th:text="${afiliado.id}"></th >
+              <td th:text ="${afiliado.name}"></td>
+              <td th:text ="${afiliado.lastname}"></td>
+              <td th:text ="${afiliado.username}"></td>
+              <td th:text ="${afiliado.nroDoc}"></td>
+              <td th:text ="${afiliado.enable}"></td>
           </tr>
           </tbody>
       </table>
