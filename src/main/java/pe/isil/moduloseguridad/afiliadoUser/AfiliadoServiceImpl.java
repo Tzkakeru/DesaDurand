@@ -1,4 +1,4 @@
-package pe.isil.moduloseguridad.afiliado;
+package pe.isil.moduloseguridad.afiliadoUser;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -64,5 +64,6 @@ public class AfiliadoServiceImpl implements AfiliadoService {
     public List<Afiliado> findAll() {
         return afiliadoRepository.findAll();
     }
+
 
 }

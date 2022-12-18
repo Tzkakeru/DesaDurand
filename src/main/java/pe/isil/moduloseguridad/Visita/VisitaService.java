@@ -1,11 +1,10 @@
-package pe.isil.moduloseguridad.visita;
+package pe.isil.moduloseguridad.Visita;
 
-import pe.isil.moduloseguridad.afiliado.Afiliado;
 import pe.isil.moduloseguridad.shared.BasicRespone;
 
 import java.util.List;
 
-public interface VisitService {
+public interface VisitaService {
 
 
     BasicRespone updateVst(Visita visita, Long id);

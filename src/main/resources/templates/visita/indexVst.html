@@ -21,10 +21,10 @@
         </tr>
         </thead>
         <tbody class="table-group-divider">
-        <tr th:each="visita : ${visitas}" >
+        <tr th:each="visita : ${vst}" >
             <td th:text="${visita.id}"></td>
             <td th:text="${visita.local}"></td>
-            <td th:text="${visita.afiliado}"></td>
+            <td th:each="af: ${af}" th:text="${af.dni}"></td>
             <td>
                 <div class="row">
                     <div class="col-3">

@@ -1,4 +1,4 @@
-package pe.isil.moduloseguridad.afiliado;
+package pe.isil.moduloseguridad.afiliadoUser;
 
 import lombok.Data;
 

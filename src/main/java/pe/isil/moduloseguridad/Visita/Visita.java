@@ -1,7 +1,7 @@
-package pe.isil.moduloseguridad.visita;
+package pe.isil.moduloseguridad.Visita;
 
 
-import pe.isil.moduloseguridad.afiliado.Afiliado;
+import pe.isil.moduloseguridad.afiliadoUser.Afiliado;
 
 import javax.persistence.*;
 import java.util.Date;
